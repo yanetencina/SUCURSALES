@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Sucursales.Models.Sucursale>
+
+@{
+    ViewData["Title"] = "Sucursales";
+}
+<style>
+    body {
+        background-color: #f0f8ff; /* Color de fondo */
+        color: #333333; /* Color del texto */
+    }
+</style>
+<h1>Lista de Sucursales</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-green">Create new</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direccion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ciudad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Provincia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CodigoPostal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaApertura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gerente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ciudad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoPostal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaApertura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gerente)
+            </td>
+            <td>
+                <a asp-action="Edit"class="btn btn-warning" asp-route-id="@item.SucursalId">Edit</a> |
+                    <a asp-action="Details" class="btn btn-primary" asp-route-id="@item.SucursalId">Details</a> |
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.SucursalId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
